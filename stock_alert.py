@@ -3,7 +3,7 @@ import yfinance as yf
 import json
 import os
 
-TARGET_PRICE = 450  # your alert price
+TARGET_PRICE = 3146.6  # your alert price
 STOCK = "TCS.NS"    # NSE example
 
 ULTRA_MSG_INSTANCE = os.getenv("ULTRA_MSG_INSTANCE")
