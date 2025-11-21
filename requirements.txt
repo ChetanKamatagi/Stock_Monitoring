@@ -1,7 +1,5 @@
 python-telegram-bot==20.6
-httpx==0.25.0
-pytz
-yfinance
-asyncpg
-pandas==2.2.3
-numpy==1.26.4
+yfinance==0.2.27
+pytz==2025.7
+pandas==2.1.1
+numpy==1.26.0
