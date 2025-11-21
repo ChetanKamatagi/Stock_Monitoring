@@ -9,7 +9,7 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
 # --- Config ---
-TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
+TOKEN = "8377657688:AAGLA9_wowQN3prT_9m563AdPoes44mTKkM"
 DATABASE_URL = os.environ.get("DATABASE_URL")
 CHECK_INTERVAL = 60  # seconds between price checks
 
