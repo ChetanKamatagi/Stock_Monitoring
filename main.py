@@ -1,4 +1,4 @@
-print("Stock Alert Service Ready")]
+print("Stock Alert Service Ready")
 
 import asyncio
 import os
