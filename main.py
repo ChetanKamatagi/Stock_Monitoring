@@ -8,6 +8,7 @@ import asyncpg
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
+print("The App has been started")
 # --- Config ---
 TOKEN = "8377657688:AAGLA9_wowQN3prT_9m563AdPoes44mTKkM"
 DATABASE_URL = "postgresql://postgres:KLXeUHmnQTEdzcVFttkUQEVnwVZmZsqr@postgres.railway.internal:5432/railway"
