@@ -1,9 +1,7 @@
 python-telegram-bot==20.6
-httpx
-yfinance==0.2.27
-pytz==2025.2
-pandas
-numpy
+httpx==0.27.2
+pytz
+yfinance
 asyncpg
-wheel
-setuptools
+pandas==2.2.3
+numpy==1.26.4

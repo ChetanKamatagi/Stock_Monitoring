@@ -230,7 +230,7 @@ async def main():
     app.add_handler(CommandHandler("status", current_status))
     app.add_handler(CommandHandler("help", help_command))
 
-    app.run_polling()
+    # app.run_polling()
 
 if __name__ == "__main__":
     asyncio.run(main())
