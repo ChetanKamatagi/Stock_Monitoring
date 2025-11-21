@@ -1,5 +1,5 @@
 python-telegram-bot==20.6
-httpx==0.27.2
+httpx==0.25.0
 pytz
 yfinance
 asyncpg
