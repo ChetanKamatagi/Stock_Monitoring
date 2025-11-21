@@ -1,8 +1,8 @@
 python-telegram-bot==20.6
 yfinance==0.2.27
 pytz==2025.2
-pandas==2.0.3
-numpy==1.25.0
-asyncpg==0.27.1
-wheel==0.40.0
-setuptools==68.0.0
+pandas
+numpy
+asyncpg
+wheel
+setuptools
