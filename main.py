@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 from motor.motor_asyncio import AsyncIOMotorClient
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
-
+import requests
 from flask import Flask
 from threading import Thread
 
@@ -75,9 +75,22 @@ def is_market_open():
 
 def is_valid_stock(symbol):
     try:
-        data = yf.Ticker(symbol).history(period="1d")
-        return not data.empty
-    except:
+        # Create a session to mimic a browser
+        session = requests.Session()
+        session.headers.update({
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        })
+        
+        # Use the session with yfinance
+        ticker = yf.Ticker(symbol, session=session)
+        data = ticker.history(period="1d")
+        
+        if data.empty:
+            print(f"Validation failed: Data is empty for {symbol}")
+            return False
+        return True
+    except Exception as e:
+        print(f"Validation Error for {symbol}: {e}")
         return False
 
 # --- Background Monitor Loop ---
@@ -85,7 +98,10 @@ async def monitor_stock(app, chat_id):
     global monitoring
     print("🚀 Background monitoring task started.")
     last_heartbeat = 0  # To track hourly console logs
-    
+    stock_session = requests.Session()
+    stock_session.headers.update({
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
+    })
     while monitoring:
         try:
             current_time_unix = asyncio.get_event_loop().time()
@@ -107,7 +123,7 @@ async def monitor_stock(app, chat_id):
 
             for symbol, target in stocks_to_check.items():
                 try:
-                    ticker = yf.Ticker(symbol)
+                    ticker = yf.Ticker(symbol, session=stock_session)
                     data = ticker.history(period="1d", interval="1m")
                     if data.empty: continue
                     
