@@ -1,9 +1,9 @@
-python-telegram-bot==21.9
-motor==3.6.0
-dnspython==2.7.0
-yfinance==0.2.50
-pytz==2024.2
-python-dotenv==1.0.1
-certifi==2024.12.14
-httpx==0.28.1
+python-telegram-bot
+motor
+dnspython
+yfinance
+pytz
+python-dotenv
+certifi
+curl_cffi
 flask
